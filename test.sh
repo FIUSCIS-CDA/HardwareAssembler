@@ -27,7 +27,7 @@
 #    - For each argument, mv any file that contained that string into 
 #      the appropriate filename.  Sometimes Canvas named files NS0Group14.bdf,
 #      for example.  That would get moved to NS0.bdf
-#    - For each BDF file, generate Verilog (use 'quartus map')
+#    - For each BDF file, generate Verilog (use 'quartus_map')
 #    - If successful, we have six Verilog files, compile each (command is 'vlog')
 #    - Run my testbench.  I used the command:
 #      vsim -c -do "force -freeze sim:/testbench/clk 1 0, 0 {2 ps} -r 5; run 360; quit" testbench
