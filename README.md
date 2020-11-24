@@ -1,0 +1,66 @@
+#### MODULE NAME
+       HardwareAssembler
+
+#### DEPENDENCIES
+      ALU32, ALUBit31, ALUBits0To30, ALUCtl, FSM, INC4, maindec, memfile.dat,
+      microprogram, mipsmem, mipsmulti, mipsparts, mipstest, MUX2, MUX4, NS0,
+      NS1, NS2, NS3, OneBitAdder, OverflowDetection, topmulti
+
+#### DESCRIPTION
+      Hardware Assembler is intended to familiarize the use of ModelSim and
+      Quartus through the command line.  The section 'GETTING STARTED' is where
+      the command line instructions for operation begins. The basic commands
+      used to run thetestbench for Hardware Assembler are:
+
+1. vlib sets up a work directory in the root folder of Hardware Assembler
+```sh
+vlib work
+```
+2. quartus_map will convert necessary .bdf files into verilog (.v) to prepare
+HardwareAssembler to be compiled and simulated
+```sh
+quartus_map --read_settings_files=on --write_settings_files=off \
+[FileName] -c [FileName] --convert_bdf_to_verilog=[FileName].bdf
+```
+3. vlog compiles all verilog files (*.v) in the current working directory.  vlog
+also creates the work directory if 'vlib work' was not run.
+```sh
+vlog *.v
+```
+4. After successfully compiling all verilog files, the below command will run
+HardwareAssembler's testbench for 360 time units using a clock that starts on
+the rising edge (1 0) with a period of 5 (-r 5).
+```sh
+vsim -c -do "force -freeze sim:/testbench/clk 1 0, 0 {2 ps} -r 5; run 360; quit" testbench
+```
+
+#### GETTING STARTED
+1. Move all .bdf files inside of the directory 'example' into the parent directory
+'HardwareAssembler'.
+```sh
+mv *.bdf ..
+```
+2. Compile all .bdf files into verilog files
+```sh
+for i in *.bdf
+do
+  quartus_map --read_settings_files=on --write_settings_files=off $i -c $i --convert_bdf_to_verilog=$i.bdf
+done
+```
+3. Compile all verilog files in the directory HardwareAssembler
+```sh
+for i in *.v
+do
+   vlog $i
+done
+```
+4. Run testbench
+```sh
+vsim -c -do "force -freeze sim:/testbench/clk 1 0, 0 {2 ps} -r 5; run 360; quit" testbench
+```
+
+#### AUTHOR
+       Alexander T Pastoriza
+
+#### SEE ALSO
+       qms(1), modclone(1)
