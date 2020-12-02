@@ -44,7 +44,6 @@
 ## Table of Contents
 
 * [About the Project](#about-the-project)
-  * [Built With](#built-with)
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
@@ -77,13 +76,6 @@ and create polished shell scripts for anyone to use.
 
 Most of the README will be updated as the project progresses.  The majority is
 still in a template format derived from [this github.](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md)
-### Built With
-
-* []()
-* []()
-* []()
-
-
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -92,24 +84,78 @@ To get a local copy up and running follow these simple steps.
 
 ### Prerequisites
 
-TODO: Adding prerequisites here at a later date.  Below is a template
-* npm
+1. 32bit libraries to install
 ```sh
-npm install npm@latest -g
+sudo dpkg --add-architecture i386
 ```
+```sh
+sudo apt-get update
+```
+```sh
+sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
+```
+```sh
+sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
+```
+```sh
+sudo apt-get install build-essential
+```
+```sh
+sudo apt-get install gcc-multilib g++-multilib lib32stdc++6 lib32gcc1 \
+
+expat:i386 fontconfig:i386 libfreetype6:i386 libexpat1:i386 libgtk-3-0:i386 \
+
+libcanberra0:i386 libice6:i386 libsm6:i386 zlib1g:i386 libx11-6:i386 \
+
+libxau6:i386 libxdmcp6:i386 libxext6:i386 libxft2:i386 libxrender1:i386 \
+
+libxt6:i386 libxtst6:i386
+```
+2. Go to [Quartus ModelSim download site](https://fpgasoftware.intel.com/20.1.1/?edition=lite&platform=linux)
+3. Select Edition: 'Lite'
+4. Select OS: 'Linux'
+5. Select 'Individual Files' tab and download Quartus and ModelSim .run files
 
 ### Installation
 
-1. Clone the repo
+1. Install git
+```sh
+sudo apt update && sudo apt upgrade
+```
+```sh
+sudo apt install git
+```
+2. Clone the repo
 ```sh
 git clone https://github.com/apast005/QMS.git
 ```
-2. Install NPM packages
+3. [Download freetype](http://download.savannah.gnu.org/releases/freetype/freetype-2.4.12.tar.bz2)
+4. Extract freetype .tar.bz2 file
+5. Then run the following set of commands
 ```sh
-npm install
+cd  ~/Downloads/
 ```
-
-
+```sh
+cd  freetype-2.4.12
+```
+```sh
+./configure -- build=i686-pc -linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32"
+```
+```sh
+make -j8
+```
+6. Go to modelsim_ase directory. Below is where my modelsim_ase directory was located
+```sh
+cd ~/intelFPGA/20.1/modelsim_ase
+```
+7. Once there, make a lib32 directory
+```sh
+mkdir lib32
+```
+8. Copy files from freetype to new lib32 folder inside modelsim_ase
+```sh
+sudo cp ~/Downloads/freetype-2.4.12/objs/.libs/libfreetype.so* ./lib32
+```
 
 <!-- USAGE EXAMPLES -->
 ## Usage
@@ -123,17 +169,17 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 <!-- ROADMAP -->
 ## Roadmap
 1. Increase Usability      
--[ ] Download the appropriate components from GitHub and produce useful messages and/or log files for users as appropriate.  
--[ ] Outputs of these test benches also should be displayed in the terminal or into log files in ways that make sense
--[ ] A user should be able to turn interactive mode on or off (for
-* Example:  Windows users executing these test benches over Putty
+    - [X] Download the appropriate components from GitHub and produce useful messages and/or log files for users as appropriate.  
+    - [X] Outputs of these test benches also should be displayed in the terminal or into log files in ways that make sense
+    - [ ] A user should be able to turn interactive mode on or off (for
+              * Example:  Windows users executing these test benches over Putty
 
 2. Automate component integration/testing
--[ ] Automate this process through scripts that could process these dependency files and check if dependencies have been installed
--[ ] Test benches for components should be automatically executed upon installation to validate a working component.
+    - [X] Automate this process through scripts that could process these dependency files and check if dependencies have been installed
+    - [X] Test benches for components should be automatically executed upon installation to validate a working component.
 
 3. Documentation is in PDF table that specifies the module name, dependencies, inputs, outputs, and an English description of the component.  
--[ ] Alternative environment for documentation like Unix “man” pages.
+    - [X] Alternative environment for documentation like Unix “man” pages.
 
 4. See the [open issues](https://github.com/apast005/QMS/issues) for a list of proposed features (and known issues).
 
@@ -180,15 +226,15 @@ Project Link: [https://github.com/apast005/QMS](https://github.com/apast005/QMS)
 * [Quartus Manual](https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/manual/quartus_install.pdf)
 * [Intel Installation FAQS](https://www.intel.com/content/www/us/en/programmable/downloads/software/faq/installation-faq.html?erpm_id=8905536_ts1601556901225#_Toc361418227)
 * [Intel's Download Center](https://fpgasoftware.intel.com/20.1/?edition=lite)
-* []()
+* [Intel's Terminal Guide](https://www.intel.com/content/dam/www/programmable/us/en/pdfs/literature/manual/tclscriptrefmnl.pdf)
 
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 * [Template for README](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md)
-* []()
-* []()
+* [Jens Schweikhardt How To](https://tldp.org/HOWTO/Man-Page/q3.html)
+* [Troubleshooting Guide ModelSim](https://profile.iiita.ac.in/bibhas.ghoshal/COA_2020/Lab/ModelSim%20Linux%20installation.html)
 
 
 
@@ -196,16 +242,16 @@ Project Link: [https://github.com/apast005/QMS](https://github.com/apast005/QMS)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/apast005/repo.svg?style=flat-square
-[contributors-url]: https://github.com/apast005/repo/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/apast005/repo.svg?style=flat-square
-[forks-url]: https://github.com/apast005/repo/network/members
-[stars-shield]: https://img.shields.io/github/stars/apast005/repo.svg?style=flat-square
-[stars-url]: https://github.com/apast005/repo/stargazers
-[issues-shield]: https://img.shields.io/github/issues/apast005/repo.svg?style=flat-square
-[issues-url]: https://github.com/apast005/repo/issues
-[license-shield]: https://img.shields.io/github/license/apast005/repo.svg?style=flat-square
-[license-url]: https://github.com/apast005/repo/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[contributors-shield]: https://img.shields.io/github/contributors/apast005/QMS.svg?style=flat-square
+[contributors-url]: https://github.com/apast005/QMS/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/apast005/QMS.svg?style=flat-square
+[forks-url]: https://github.com/apast005/QMS/network/members
+[stars-shield]: https://img.shields.io/github/stars/apast005/QMS.svg?style=flat-square
+[stars-url]: https://github.com/apast005/QMS/stargazers
+[issues-shield]: https://img.shields.io/github/issues/apast005/QMS.svg?style=flat-square
+[issues-url]: https://github.com/apast005/QMS/issues
+[license-shield]: https://img.shields.io/github/license/apast005/QMS.svg?style=flat-square
+[license-url]: https://github.com/apast005/QMS/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/alexander-pastoriza
 [product-screenshot]: images/screenshot.png
