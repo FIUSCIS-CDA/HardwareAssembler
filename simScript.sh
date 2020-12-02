@@ -65,11 +65,10 @@ processFiles
 vlib work
 
 # 2. Compile all Verilog files in the root folder
-for file in "${files_array[@]}"
+for i in *.v
 do
-	vlog $file>>temp
+	vlog $i>>temp
         echo 'Finished module compilation' >> temp	
-   vlog $testbenchFile
 done
 
 # traps and excecution
