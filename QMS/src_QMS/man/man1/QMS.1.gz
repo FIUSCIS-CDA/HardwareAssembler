@@ -45,5 +45,7 @@ Will also update this section at release.
 .SH AUTHOR
 Alexander T Pastoriza
 .SH "SEE ALSO"
-.BR 'Hardware_Repo_Name' (7),
-.BR modclone (1)
+.B Hardware Components(7)
+\n
+.BR repo_clone_validate(1)
+
