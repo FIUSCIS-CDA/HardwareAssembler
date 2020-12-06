@@ -11,8 +11,8 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
+[![LinkedIn][linkedin-shield]][linkedin-url1]
+[![LinkedIn][linkedin-shield]][linkedin-url2]
 
 
 <!-- PROJECT LOGO -->
@@ -47,6 +47,7 @@
 * [Getting Started](#getting-started)
   * [Prerequisites](#prerequisites)
   * [Installation](#installation)
+  * [Uninstall](#uninstall)
 * [Usage](#usage)
 * [Roadmap](#roadmap)
 * [Contributing](#contributing)
@@ -74,104 +75,55 @@ My main goal is to ease the use of Quartus and ModelSim for educational purposes
 and create polished shell scripts for anyone to use.
 
 
-Most of the README will be updated as the project progresses.  The majority is
-still in a template format derived from [this github.](https://github.com/othneildrew/Best-README-Template/blob/master/BLANK_README.md)
-
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple steps.
+To get a local copy up and running, follow these steps below.
 
 ### Prerequisites
 
-1. 32bit libraries to install
-```sh
-sudo dpkg --add-architecture i386
-```
-```sh
-sudo apt-get update
-```
-```sh
-sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386
-```
-```sh
-sudo apt-get install lib32z1 lib32ncurses5 lib32bz2-1.0
-```
-```sh
-sudo apt-get install build-essential
-```
-```sh
-sudo apt-get install gcc-multilib g++-multilib lib32stdc++6 lib32gcc1 \
-
-expat:i386 fontconfig:i386 libfreetype6:i386 libexpat1:i386 libgtk-3-0:i386 \
-
-libcanberra0:i386 libice6:i386 libsm6:i386 zlib1g:i386 libx11-6:i386 \
-
-libxau6:i386 libxdmcp6:i386 libxext6:i386 libxft2:i386 libxrender1:i386 \
-
-libxt6:i386 libxtst6:i386
-```
-2. Go to [Quartus ModelSim download site](https://fpgasoftware.intel.com/20.1.1/?edition=lite&platform=linux)
-3. Select Edition: 'Lite'
-4. Select OS: 'Linux'
-5. Select 'Individual Files' tab and download Quartus and ModelSim .run files
+1. Go to [Quartus ModelSim download site](https://fpgasoftware.intel.com/20.1.1/?edition=lite&platform=linux)
+2. Select Edition: 'Lite'
+3. Select OS: 'Linux'
+4. Select 'Individual Files' tab and download Quartus and ModelSim .run files
 
 ### Installation
 
-1. Install git
-```sh
-sudo apt update && sudo apt upgrade
-```
-```sh
-sudo apt install git
-```
-2. Clone the repo
+1. Clone the repo
 ```sh
 git clone https://github.com/apast005/QMS.git
 ```
-3. [Download freetype](http://download.savannah.gnu.org/releases/freetype/freetype-2.4.12.tar.bz2)
-4. Extract freetype .tar.bz2 file
-5. Then run the following set of commands
+2. Run following command in HardwareAssembler directory
 ```sh
-cd  ~/Downloads/
+chmod +x first_run.sh
 ```
+3. Execute first_run.sh
 ```sh
-cd  freetype-2.4.12
+./first_run.sh
 ```
+4. Open QMS menu with following command
 ```sh
-./configure -- build=i686-pc -linux-gnu "CFLAGS=-m32" "CXXFLAGS=-m32" "LDFLAGS=-m32"
+QMS
 ```
+
+### Uninstall
+1. Run the QMS menu
 ```sh
-make -j8
+QMS
 ```
-6. Go to modelsim_ase directory. Below is where my modelsim_ase directory was located
-```sh
-cd ~/intelFPGA/20.1/modelsim_ase
-```
-7. Once there, make a lib32 directory
-```sh
-mkdir lib32
-```
-8. Copy files from freetype to new lib32 folder inside modelsim_ase
-```sh
-sudo cp ~/Downloads/freetype-2.4.12/objs/.libs/libfreetype.so* ./lib32
-```
+2. Select the option '898' in the QMS menu
 
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
-
-_For more examples, please refer to the [Documentation](https://example.com)_
-
-
+The QMS menu has all the information required as output into the terminal to process various commands.  The current terminal will be busy running the QMS menu, so we do recommend opening an additional terminal to see any man pages of scripts, hardware components or others to be viewed with ease.  Each man page goes into detail about all components and script usage to understand the scope of this project.
 
 <!-- ROADMAP -->
 ## Roadmap
 1. Increase Usability      
     - [X] Download the appropriate components from GitHub and produce useful messages and/or log files for users as appropriate.  
     - [X] Outputs of these test benches also should be displayed in the terminal or into log files in ways that make sense
-    - [ ] A user should be able to turn interactive mode on or off (for
+    - [X] A user should be able to turn interactive mode on or off (for
               * Example:  Windows users executing these test benches over Putty
 
 2. Automate component integration/testing
@@ -207,14 +159,13 @@ Below is a template from a README template I used that is listed in Acknowledgme
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
 ## Contact
 
 Alex Pastoriza - apast005@fiu.edu
+Idiel Guerra  - iguer034@fiu.edu
 
-Project Link: [https://github.com/apast005/QMS](https://github.com/apast005/QMS)
+Project Link: [HardwareAssembler (QMS)](https://github.com/FIUSCIS-CDA/HardwareAssembler)
 
 
 
@@ -253,5 +204,6 @@ Project Link: [https://github.com/apast005/QMS](https://github.com/apast005/QMS)
 [license-shield]: https://img.shields.io/github/license/apast005/QMS.svg?style=flat-square
 [license-url]: https://github.com/apast005/QMS/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-blue.svg?style=flat-square&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/alexander-pastoriza
+[linkedin-url1]: https://linkedin.com/in/alexander-pastoriza
+[linkedin-url2]: https://linkedin.com/in/idiel-guerra
 [product-screenshot]: images/screenshot.png
