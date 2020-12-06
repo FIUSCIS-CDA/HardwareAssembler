@@ -47,18 +47,18 @@ int main(int argc, char** argv)
 
 void menu_options()
 {
-  printf("QMS script menu\n");
+  printf("<<< QMS script menu >>>\n");
   printf("Please enter the integer besides the script you wish to run\n");
   printf("\n---------------------------------------------------\n");
 
-  printf("1.) Check if my system is ready for QMS.\n", );
+  printf("1.) Select if first use of QMS or to validate use of QMS.\n", );
   printf("2.) ModelSim 32bit libraries installation.\n");
   printf("3.) ModelSim initial setup.\n");
   printf("4.) Clone repositories.\n");
   printf("0.) To exit QMS program.\n");
 
   printf("\n---------------------------------------------------\n");
-  scanf(%d, choice);
+  scanf("%d", choice);
   switch(choice)
   {
     case 1:
@@ -82,10 +82,14 @@ void menu_options()
   }
 }
 
+
 void validate_bash()
 {
   chdir("install/");
+  system("chmod +x *.sh");
   system("./validate_bash.sh");
+  chdir("../repo_clone/");
+  system("chmod +x *.sh");
   chdir("../");
   system("pwd");
 }
