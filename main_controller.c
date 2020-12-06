@@ -92,18 +92,16 @@ void menu_options()
 
 void validate_bash()
 {
-  chdir("install/");
+  chdir("QMS_scripts/");
   system("chmod +x *.sh");
   system("./validate_bash.sh");
-  chdir("../repo_clone/");
-  system("chmod +x *.sh");
   chdir("../");
   system("pwd");
 }
 
 void ModelSim_libraries()
 {
-  chdir("install/");
+  chdir("QMS_scripts/");
   system("./32bit_libraries.sh");
   chdir("../");
   system("pwd");
@@ -111,7 +109,7 @@ void ModelSim_libraries()
 
 void ModelSim_setup()
 {
-  chdir("install/");
+  chdir("QMS_scripts/");
   system("./ModelSim_setup.sh");
   chdir("../");
   system("pwd");
@@ -119,7 +117,7 @@ void ModelSim_setup()
 
 void repo_clone()
 {
-  chdir("repo_clone/");
+  chdir("QMS_scripts/");
   system("./repo_clone_validate.sh");
   chdir("../");
   system("pwd");
@@ -127,7 +125,7 @@ void repo_clone()
 
 void repo_name_scrape()
 {
-  chdir("repo_clone/");
+  chdir("QMS_scripts/");
   system("./repo_name_scrape.sh");
   chdir("../");
   system("pwd");
@@ -135,7 +133,7 @@ void repo_name_scrape()
 
 void uninstall_QMS()
 {
-  chdir("install/");
+  chdir("QMS_scripts/");
   system("./uninstall.sh");
   chdir("../");
   system("pwd");
