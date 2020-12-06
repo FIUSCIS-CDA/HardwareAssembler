@@ -60,3 +60,8 @@ repo_name_scrape(1)
 validate_bash(1)
 \n
 uninstall(1)
+\n
+first_run(1)
+\n
+simScript(1)
+
