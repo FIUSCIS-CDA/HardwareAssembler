@@ -47,7 +47,14 @@ Alexander T Pastoriza
 \n
 Idiel E Guerra
 .SH "SEE ALSO"
-.B Hardware Components(7)
+Hardware Components(7)
 \n
-.BR repo_clone_validate(1)
-
+repo_clone_validate(1)
+\n
+32bit_libraries(1)
+\n
+install_ModelSim(1)
+\n
+repo_name_scrape(1)
+\n
+validate_bash(1)
