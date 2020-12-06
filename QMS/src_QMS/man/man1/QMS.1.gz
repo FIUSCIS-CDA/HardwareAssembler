@@ -44,6 +44,8 @@ provide details on which environment path is missing and how to set it.
 Will also update this section at release.
 .SH AUTHOR
 Alexander T Pastoriza
+\n
+Idiel E Guerra
 .SH "SEE ALSO"
 .B Hardware Components(7)
 \n
