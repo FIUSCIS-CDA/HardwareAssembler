@@ -58,3 +58,5 @@ install_ModelSim(1)
 repo_name_scrape(1)
 \n
 validate_bash(1)
+\n
+uninstall(1)
