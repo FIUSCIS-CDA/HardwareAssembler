@@ -3,10 +3,10 @@
 
 # Check if git command exists else install
 if ! command -v git &>/dev/null; then
-  echo "COMMAND could not be found"
+  echo "git command could not be found"
   sudo apt install git -y
 elif command -v git &>/dev/null; then
-  echo "COMMAND found!"
+  echo "git command found!"
 fi
 
 # Check if wget command exists else install

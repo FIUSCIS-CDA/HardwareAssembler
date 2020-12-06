@@ -11,3 +11,6 @@ while IFS= read -r man_page7; do
   echo "Deleting manpage: $man_page7"
   sudo rm $man_page7
 done < man_page_list_7
+
+cd /usr/bin
+sudo rm QMS
