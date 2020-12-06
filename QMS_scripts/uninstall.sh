@@ -14,3 +14,6 @@ done < man_page_list_7
 
 cd /usr/bin
 sudo rm QMS
+
+cd ~
+sudo rm -r HardwareAssembler
