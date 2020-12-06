@@ -15,7 +15,7 @@ int main(int argc, char** argv)
 {
     static int loop = 1;
     int tty = open("/dev/tty", 2);
-    int pid, w, choice;
+    int pid, w;
     int status = 0;
 
     if (tty == -1)
@@ -47,18 +47,20 @@ int main(int argc, char** argv)
 
 void menu_options()
 {
+  int choice;
   printf("<<< QMS script menu >>>\n");
   printf("Please enter the integer besides the script you wish to run\n");
   printf("\n---------------------------------------------------\n");
 
-  printf("1.) Select if first use of QMS or to validate use of QMS.\n", );
+  printf("1.) Select if first use of QMS or to validate use of QMS.\n");
   printf("2.) ModelSim 32bit libraries installation.\n");
   printf("3.) ModelSim initial setup.\n");
   printf("4.) Clone repositories.\n");
   printf("0.) To exit QMS program.\n");
 
   printf("\n---------------------------------------------------\n");
-  scanf("%d", choice);
+
+  scanf("%d", &choice);
   switch(choice)
   {
     case 1:
@@ -77,7 +79,7 @@ void menu_options()
     repo_name_scrape();
     break;
     case 0:
-    loop = 0;
+    exit(1);
     break;
   }
 }
