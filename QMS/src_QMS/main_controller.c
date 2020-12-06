@@ -8,6 +8,7 @@ void validate_bash();
 void ModelSim_libraries();
 void ModelSim_setup();
 void repo_clone();
+void repo_name_scrape();
 void menu_options();
 
 int main(int argc, char** argv)
@@ -72,6 +73,9 @@ void menu_options()
     case 4:
     repo_clone();
     break;
+    case 5:
+    repo_name_scrape();
+    break;
     case 0:
     loop = 0;
     break;
@@ -106,6 +110,14 @@ void repo_clone()
 {
   chdir("repo_clone/");
   system("./repo_clone_validate.sh");
+  chdir("../");
+  system("pwd");
+}
+
+void repo_name_scrape()
+{
+  chdir("repo_clone/");
+  system("./repo_name_scrape.sh");
   chdir("../");
   system("pwd");
 }
