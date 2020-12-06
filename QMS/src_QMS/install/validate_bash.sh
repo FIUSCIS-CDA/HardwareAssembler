@@ -43,3 +43,10 @@ echo "----------------------------"
 echo "End man1 copy"
 echo "----------------------------"
 echo ""
+cd ../man7
+sudo cp * /usr/share/man/man7
+echo ""
+echo "----------------------------"
+echo "End man7 copy"
+echo "----------------------------"
+echo ""
