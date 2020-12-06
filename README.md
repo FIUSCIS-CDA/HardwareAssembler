@@ -162,7 +162,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Alex Pastoriza - apast005@fiu.edu
+Alex Pastoriza - apast005@fiu.edu \n
 Idiel Guerra  - iguer034@fiu.edu
 
 Project Link: [HardwareAssembler (QMS)](https://github.com/FIUSCIS-CDA/HardwareAssembler)
