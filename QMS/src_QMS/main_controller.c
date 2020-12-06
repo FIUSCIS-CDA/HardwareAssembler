@@ -9,6 +9,7 @@ void ModelSim_libraries();
 void ModelSim_setup();
 void repo_clone();
 void repo_name_scrape();
+void uninstall_QMS();
 void menu_options();
 
 int main(int argc, char** argv)
@@ -56,6 +57,7 @@ void menu_options()
   printf("2.) ModelSim 32bit libraries installation.\n");
   printf("3.) ModelSim initial setup.\n");
   printf("4.) Clone repositories.\n");
+  printf("898.) Uninstall QMS\n");
   printf("0.) To exit QMS program.\n");
 
   printf("\n---------------------------------------------------\n");
@@ -77,6 +79,9 @@ void menu_options()
     break;
     case 5:
     repo_name_scrape();
+    break;
+    case 898:
+    uninstall_QMS();
     break;
     case 0:
     exit(1);
@@ -124,6 +129,14 @@ void repo_name_scrape()
 {
   chdir("repo_clone/");
   system("./repo_name_scrape.sh");
+  chdir("../");
+  system("pwd");
+}
+
+void uninstall_QMS()
+{
+  chdir("install/");
+  system("./uninstall.sh");
   chdir("../");
   system("pwd");
 }
