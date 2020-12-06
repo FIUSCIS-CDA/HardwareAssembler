@@ -36,7 +36,7 @@ int main(int argc, char** argv)
         menu_options();
       }
     }
-
+    printf("Now Exiting QMS...\n");
     close(tty);
     while ((w = wait(&status)) != pid && w != -1);
     if (w == -1) status = -1;
